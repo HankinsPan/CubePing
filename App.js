@@ -20,7 +20,8 @@ class App extends Component {
         this.state = {
             clubArray: [],
         };
-        this.spinValue = new Animated.Value(0)
+        // this.spinValue = new Animated.Value(0)
+        this.animatedValue = new Animated.Value(0)
     }
 
     componentWillMount() {
@@ -37,28 +38,46 @@ class App extends Component {
     }
 
     componentDidMount () {
-        this.spin()
+        // this.spin()
+        this.animate()
     }
 
-    spin () {
-        this.spinValue.setValue(0)
+    // spin () {
+    //     this.spinValue.setValue(0)
+    //     Animated.timing(
+    //         this.spinValue,
+    //         {
+    //             toValue: 1,
+    //             duration: 4000,
+    //             easing: Easing.linear
+    //         }
+    //     ).start(() => this.spin())
+    // }
+
+    animate () {
+        this.animatedValue.setValue(0)
         Animated.timing(
-            this.spinValue,
+            this.animatedValue,
             {
                 toValue: 1,
-                duration: 4000,
+                duration: 2000,
                 easing: Easing.linear
             }
-        ).start(() => this.spin())
+        ).start(() => this.animate())
     }
 
     render() {
         console.log("App props ->", this.props);
         console.log("App state ->", this.state);
 
-        const spin = this.spinValue.interpolate({
-            inputRange: [0, 1],
-            outputRange: ['0deg', '360deg']
+        // const spin = this.spinValue.interpolate({
+        //     inputRange: [0, 1],
+        //     outputRange: ['0deg', '360deg']
+        // });
+
+        const opacity = this.animatedValue.interpolate({
+            inputRange: [0.2, 0.5, 0.8],
+            outputRange: [0.6, 0.9, 0.6]
         })
 
         return (
@@ -102,8 +121,7 @@ class App extends Component {
                             shadowRadius: 15,
                             shadowOpacity: 0.8,
                             elevation: 2,
-                            opacity: 0.8,
-                            transform: [{rotate: spin}]
+                            opacity,
                         }}>
                             <Text style={styles.startTxt}>
                                 START
@@ -150,8 +168,6 @@ const styles = StyleSheet.create({
         width: window.width,
         height: window.width * 1.2,
         flexDirection: 'column',
-
-        backgroundColor: 'rgba(0,0,0,0.05)',
         position: 'absolute',
     },
 
@@ -174,22 +190,6 @@ const styles = StyleSheet.create({
     logoFont: {
         fontSize: 25,
         color: color.TXT_SECONDARY_COLOR
-    },
-
-    startOpen: {
-        width: window.width * 0.36,
-        height: window.width * 0.36,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: window.width * 0.2,
-        borderRadius: window.width * 0.18,
-        backgroundColor: color.STATE_TIPS,
-
-        shadowColor: color.STATE_TIPS,
-        shadowOffset: {h: 10, w: 0},
-        shadowRadius: 15,
-        shadowOpacity: 0.8,
-        elevation: 2,
     },
 
     startTxt: {
