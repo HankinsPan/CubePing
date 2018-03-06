@@ -80,6 +80,8 @@ class App extends Component {
             outputRange: [0.6, 0.9, 0.6]
         })
 
+        
+
         return (
             <View style={styles.originView}>
                 <View style={styles.container}>
