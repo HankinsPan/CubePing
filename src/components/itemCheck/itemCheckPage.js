@@ -6,6 +6,9 @@ import {
     FlatList,
 } from 'react-native';
 
+import * as color from '../../utils/colors';
+import CheckBox from 'react-native-check-box';
+
 const styles = require('./styles');
 const txtData = '旅行的本质其实是放弃熟悉的选择而发现未知的乐趣，' +
     '坐一回未知目的的公共汽车，吃一次当地难以下咽的食物。' +
@@ -50,12 +53,51 @@ class ItemCheckPage extends Component {
 
     _checkRenderItem = (item) => {
         return (
-            <View style={styles.checkItemView}>
-                <Text style={styles.checkItemTxt}>
-                    {item}
-                </Text>
-            </View>
+            <CheckBox
+                style={styles.checkItemView}
+                onClick={() => this._onClick(item)}
+                isChecked={false}
+                //rightText={item}
+                //rightTextStyle={{fontSize: 16, color: color.HANKINS_BG}}
+                rightTextView={
+                    <View style={styles.itemRightView}>
+                        <Image
+                            style={styles.itemHeadImg}
+                            source={require('../../images/icons/ic_404.png')}
+                        />
+
+                        <View style={styles.itemContentView}>
+                            <Text>
+                                hello
+                            </Text>
+                        </View>
+
+                        <View style={styles.itemContentLastView}>
+                            <Text>
+                                pan
+                            </Text>
+                        </View>
+                    </View>
+                }
+                checkedImage={
+                    <Image
+                        source={require('../../images/icons/ic_choose_ed.png')}
+                        style={styles.itemIcon}
+                    />
+                }
+                unCheckedImage={
+                    <Image
+                        source={require('../../images/icons/ic_choose_null.png')}
+                        style={styles.itemIcon}
+                    />
+                }
+            />
         )
+    };
+
+    _onClick = (item) => {
+        console.log("_onClick item =>", item);
+
     };
 
 
