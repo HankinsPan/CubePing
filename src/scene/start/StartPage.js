@@ -73,10 +73,14 @@ class StartPage extends Component {
 
     };
 
-    _turnToAlbum = () =>{
+    _turnToAlbum = () => {
         console.log("_turnToAlbum ")
     };
 
+    _startNextPage = () => {
+        console.log("_startNextPage ")
+        this.props.navigation.navigate('Draggable')
+    };
 
     render() {
         console.log('SignPage props ->', this.props);
@@ -89,8 +93,12 @@ class StartPage extends Component {
                         ref="viewShot"
                         options={{format: "jpg", quality: 0.9}}>
 
-                        <View style={{width: 120, height: 45, backgroundColor: color.STATE_HEALTH}}/>
-
+                        <TouchableOpacity style={styles.startView}
+                                          onPress={() => this._startNextPage()}>
+                            <Text style={styles.startTxt}>
+                                Start at here
+                            </Text>
+                        </TouchableOpacity>
 
                     </ViewShot>
                 </View>

@@ -3,6 +3,7 @@ import {
     Platform,
     Dimensions
 } from 'react-native';
+import * as color from '../../utils/colors';
 
 const window = Dimensions.get('window');
 
@@ -30,4 +31,21 @@ module.exports = StyleSheet.create({
         height: window.width * 2 / 3,
         backgroundColor: 'rgba(0,0,0,0.05)',
     },
+
+    startView: {
+        width: window.width * 0.35,
+        height: window.width * 0.14,
+        borderWidth: 1,
+        borderRadius: window.width * 0.07,
+        borderColor: color.STATE_HEALTH,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+
+    startTxt: {
+        fontSize: 16,
+        color: color.STATE_HEALTH,
+    },
+
 });
