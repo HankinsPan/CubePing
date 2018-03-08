@@ -54,21 +54,3 @@ export const PRAMARY_COLOR = '#36C0FE';
 export const SUBMIT_BTN_COLOR = '#1EAAFF';
 
 export const THEME_COLOR = '#0F9C00';
-
-/**
- * LiuDu color
- * @type {string}
- */
-
-export const TXT_PRIMARY_COLOR = '#222';
-export const TXT_SECONDARY_COLOR = '#666';
-export const TXT_ASSISTED_COLOR = '#999';
-export const TXT_HINT_COLOR = '#CCC';
-
-export const BG_WRITE_COLOR = '#E4E4E4';
-export const BG_GRAY_COLOR = '#B2B2B2';
-export const GROUP_BAR_COLOR = '#DDD';
-
-export const EDITOR_BG_COLOR = '#FFF';
-export const INPUT_BG_COLOR = '#F8F8F8';
-export const HOVER_BG_COLOR = '#F0F0F0';

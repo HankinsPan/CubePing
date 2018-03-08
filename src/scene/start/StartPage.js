@@ -16,7 +16,7 @@ import ViewShot from "react-native-view-shot";
 
 const styles = require('./styles');
 
-class SignPage extends Component {
+class StartPage extends Component {
 
     constructor(props) {
         super(props);
@@ -99,7 +99,7 @@ class SignPage extends Component {
     }
 }
 
-export default SignPage
+export default StartPage
 
 
 // <ViewShot
