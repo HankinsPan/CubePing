@@ -79,7 +79,8 @@ class StartPage extends Component {
 
     _startNextPage = () => {
         console.log("_startNextPage ")
-        this.props.navigation.navigate('Draggable')
+        // this.props.navigation.navigate('Draggable')
+        this.props.navigation.navigate('SwiperPage')
     };
 
     render() {

@@ -20,6 +20,7 @@ import StartScene from './scene/start/StartPage';
 
 import ItemCheckPage from './components/itemCheck/itemCheckPage';
 import DraggablePage from './components/draggable/dragPage';
+import SwiperPage from './components/swiperPage/swiperPage';
 
 const AppNavigator = StackNavigator(
     {
@@ -27,6 +28,7 @@ const AppNavigator = StackNavigator(
 
         ItemCheck: {screen: ItemCheckPage},
         Draggable: {screen: DraggablePage},
+        SwiperPage: {screen: SwiperPage},
 
     },
     {
