@@ -22,6 +22,8 @@ import ItemCheckPage from './components/itemCheck/itemCheckPage';
 import DraggablePage from './components/draggable/dragPage';
 import SwiperPage from './components/swiperPage/swiperPage';
 
+import SlidePage from './components/slideCard/slideCard';
+
 const AppNavigator = StackNavigator(
     {
         Main: {screen: StartScene},
@@ -29,6 +31,8 @@ const AppNavigator = StackNavigator(
         ItemCheck: {screen: ItemCheckPage},
         Draggable: {screen: DraggablePage},
         SwiperPage: {screen: SwiperPage},
+
+        SlidePage: {screen: SlidePage},
 
     },
     {

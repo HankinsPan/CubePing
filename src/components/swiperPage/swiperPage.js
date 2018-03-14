@@ -43,12 +43,12 @@ class SwiperPage extends Component {
         );
     }
 
-    _renderLightItem ({item, index}) {
-        return <SliderEntry data={item} even={false} />;
+    _renderLightItem({item, index}) {
+        return <SliderEntry data={item} even={false}/>;
     }
 
-    _renderDarkItem ({item, index}) {
-        return <SliderEntry data={item} even={true} />;
+    _renderDarkItem({item, index}) {
+        return <SliderEntry data={item} even={true}/>;
     }
 
     mainExample(number, title) {
@@ -196,20 +196,20 @@ class SwiperPage extends Component {
                         backgroundColor={'rgba(0, 0, 0, 0.3)'}
                         barStyle={'light-content'}
                     />
-                    { this.gradient }
+                    {this.gradient}
                     <ScrollView
                         style={styles.scrollview}
                         scrollEventThrottle={200}
                         directionalLockEnabled={true}
                     >
-                        { example1 }
-                        { example2 }
-                        { example3 }
-                        { example4 }
-                        { example5 }
-                        { example6 }
-                        { example7 }
-                        { example8 }
+                        {example1}
+                        {example2}
+                        {example3}
+                        {example4}
+                        {example5}
+                        {example6}
+                        {example7}
+                        {example8}
                     </ScrollView>
                 </View>
             </SafeAreaView>

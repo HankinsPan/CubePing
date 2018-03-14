@@ -33,8 +33,8 @@ module.exports = StyleSheet.create({
     },
 
     startView: {
-        width: window.width * 0.35,
-        height: window.width * 0.14,
+        width: window.width * 0.45,
+        height: window.width * 0.125,
         borderWidth: 1,
         borderRadius: window.width * 0.07,
         borderColor: color.STATE_HEALTH,
