@@ -30,3 +30,8 @@ export const slideArray = [
         illustration: 'https://i.imgur.com/lceHsT6l.jpg'
     }
 ];
+
+export const NORAML_FETCH = 'https://api.douban.com/v2/movie/search?';
+// export const NORAML_FETCH = 'https://api.douban.com/v2/movie/search?q=${text}&apikey=0b2bdeda43b5688921839c8ecb20399b&client=something';
+
+export const MOVIE_ID= 'id';

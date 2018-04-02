@@ -23,6 +23,9 @@ import DraggablePage from './components/draggable/dragPage';
 import SwiperPage from './components/swiperPage/swiperPage';
 
 import SlidePage from './components/slideCard/slideCard';
+import StatusPage from './components/statusPages/statusBarPage'
+
+import SearchPage from './components/search/searchPage'
 
 const AppNavigator = StackNavigator(
     {
@@ -33,6 +36,10 @@ const AppNavigator = StackNavigator(
         SwiperPage: {screen: SwiperPage},
 
         SlidePage: {screen: SlidePage},
+        StatusPage: {screen: StatusPage},
+
+        Search: {screen: SearchPage},
+
 
     },
     {

@@ -88,6 +88,10 @@ class StartPage extends Component {
         this.props.navigation.navigate('SlidePage');
     };
 
+    _startStatusPage = () => {
+        this.props.navigation.navigate('Search');
+    };
+
     render() {
         console.log('SignPage props ->', this.props);
 
@@ -116,6 +120,13 @@ class StartPage extends Component {
                             </Text>
                         </TouchableOpacity>
 
+                        <View style={{marginTop: 30}}/>
+                        <TouchableOpacity style={styles.startView}
+                                          onPress={() => this._startStatusPage()}>
+                            <Text style={styles.startTxt}>
+                                SearchPage Page
+                            </Text>
+                        </TouchableOpacity>
                     </ViewShot>
                 </View>
             </TouchableWithoutFeedback>

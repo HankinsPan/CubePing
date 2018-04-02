@@ -5,11 +5,13 @@ import dva from './utils/dva'
 import Router, {routerMiddleware} from './RootScene'
 
 import routerModel from './models/router'
+import movieModel from './models/movie'
 
 const app = dva({
     initialState: {},
     models: [
         routerModel,
+        movieModel,
     ],
     onAction: [routerMiddleware],
     onError(e) {
