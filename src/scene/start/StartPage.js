@@ -92,6 +92,14 @@ class StartPage extends Component {
         this.props.navigation.navigate('Search');
     };
 
+    _startAreaPage = () =>{
+        this.props.navigation.navigate('AreaPage')
+    };
+
+    _startToastPage = () =>{
+        this.props.navigation.navigate('ToastPage')
+    };
+
     render() {
         console.log('SignPage props ->', this.props);
 
@@ -125,6 +133,22 @@ class StartPage extends Component {
                                           onPress={() => this._startStatusPage()}>
                             <Text style={styles.startTxt}>
                                 SearchPage Page
+                            </Text>
+                        </TouchableOpacity>
+
+                        <View style={{marginTop: 30}}/>
+                        <TouchableOpacity style={styles.startView}
+                                          onPress={() => this._startAreaPage()}>
+                            <Text style={styles.startTxt}>
+                                Area Page
+                            </Text>
+                        </TouchableOpacity>
+
+                        <View style={{marginTop: 30}}/>
+                        <TouchableOpacity style={styles.startView}
+                                          onPress={() => this._startToastPage()}>
+                            <Text style={styles.startTxt}>
+                                Toast Page
                             </Text>
                         </TouchableOpacity>
                     </ViewShot>

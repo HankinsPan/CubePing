@@ -26,6 +26,8 @@ import SlidePage from './components/slideCard/slideCard';
 import StatusPage from './components/statusPages/statusBarPage'
 
 import SearchPage from './components/search/searchPage'
+import AreaPage from './components/areaPage/areaPage'
+import ToastPage from './components/toastPage/toastPage'
 
 const AppNavigator = StackNavigator(
     {
@@ -39,8 +41,9 @@ const AppNavigator = StackNavigator(
         StatusPage: {screen: StatusPage},
 
         Search: {screen: SearchPage},
+        AreaPage: {screen: AreaPage},
 
-
+        ToastPage: {screen: ToastPage},
     },
     {
         headerMode: 'none',

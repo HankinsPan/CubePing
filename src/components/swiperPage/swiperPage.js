@@ -16,6 +16,7 @@ import styles, {colors} from './styles/index.style';
 import {ENTRIES1, ENTRIES2} from './static/entries';
 import {scrollInterpolators, animatedStyles} from './utils/animations';
 
+
 const IS_ANDROID = Platform.OS === 'android';
 const SLIDER_1_FIRST_ITEM = 1;
 
