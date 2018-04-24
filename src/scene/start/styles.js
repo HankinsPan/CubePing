@@ -43,6 +43,29 @@ module.exports = StyleSheet.create({
     },
 
 
+    clickBtnView: {
+        width: window.width * 0.45,
+        height: window.width * 0.1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: color.STATE_TIPS,
+
+    },
+
+    clickBtnViewV2: {
+        width: window.width * 0.45,
+        height: window.width * 0.1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: color.STATE_TIPS,
+        marginTop: 15,
+    },
+
+    btnTxt: {
+        fontSize: 18,
+        color: '#FFF',
+    },
+
     startTxt: {
         fontSize: 16,
         color: color.STATE_HEALTH,

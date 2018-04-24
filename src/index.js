@@ -6,12 +6,14 @@ import Router, {routerMiddleware} from './RootScene'
 
 import routerModel from './models/router'
 import movieModel from './models/movie'
+import startModel from './models/start'
 
 const app = dva({
     initialState: {},
     models: [
         routerModel,
         movieModel,
+        startModel,
     ],
     onAction: [routerMiddleware],
     onError(e) {

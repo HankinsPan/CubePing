@@ -16,6 +16,7 @@ import {connect} from 'react-redux';
 
 import * as color from './utils/colors';
 import StartScene from './scene/start/StartPage';
+import StartSceneV2 from './scene/start/StartPageV2';
 
 
 import ItemCheckPage from './components/itemCheck/itemCheckPage';
@@ -28,10 +29,12 @@ import StatusPage from './components/statusPages/statusBarPage'
 import SearchPage from './components/search/searchPage'
 import AreaPage from './components/areaPage/areaPage'
 import ToastPage from './components/toastPage/toastPage'
+import VideoPlayer from './components/videoPlayer/videoPlayer'
+import VideoPlayerV2 from './components/videoPlayer/videoPlayerV2'
 
 const AppNavigator = StackNavigator(
     {
-        Main: {screen: StartScene},
+        Main: {screen: StartSceneV2},
 
         ItemCheck: {screen: ItemCheckPage},
         Draggable: {screen: DraggablePage},
@@ -44,6 +47,8 @@ const AppNavigator = StackNavigator(
         AreaPage: {screen: AreaPage},
 
         ToastPage: {screen: ToastPage},
+        VideoPage: {screen: VideoPlayerV2},
+
     },
     {
         headerMode: 'none',
