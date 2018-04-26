@@ -34,6 +34,13 @@ class StartPageV2 extends Component {
         this.props.navigation.navigate('VideoPage')
     };
 
+    _btnClickV3 = () => {
+        this.props.navigation.navigate('ContextPage')
+    };
+
+    _btnClickV4 = () =>{
+        this.props.navigation.navigate('CarouselPage')
+    };
 
     render() {
         console.log("StartPageV2 props ->", this.props);
@@ -62,6 +69,21 @@ class StartPageV2 extends Component {
                                               onPress={() => this._btnClickV2()}>
                                 <Text style={styles.btnTxt}>
                                     btn two
+                                </Text>
+                            </TouchableOpacity>
+
+
+                            <TouchableOpacity style={styles.clickBtnViewV2}
+                                              onPress={() => this._btnClickV3()}>
+                                <Text style={styles.btnTxt}>
+                                    btn three
+                                </Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={styles.clickBtnViewV2}
+                                              onPress={() => this._btnClickV4()}>
+                                <Text style={styles.btnTxt}>
+                                    btn four
                                 </Text>
                             </TouchableOpacity>
 

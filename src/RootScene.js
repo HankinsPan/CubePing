@@ -31,6 +31,8 @@ import AreaPage from './components/areaPage/areaPage'
 import ToastPage from './components/toastPage/toastPage'
 import VideoPlayer from './components/videoPlayer/videoPlayer'
 import VideoPlayerV2 from './components/videoPlayer/videoPlayerV2'
+import ContextPage from './components/contextPage/contextPageOne';
+import CarouselPage from './components/carouselPage/carouselPage';
 
 const AppNavigator = StackNavigator(
     {
@@ -48,6 +50,8 @@ const AppNavigator = StackNavigator(
 
         ToastPage: {screen: ToastPage},
         VideoPage: {screen: VideoPlayerV2},
+        ContextPage: {screen: ContextPage},
+        CarouselPage: {screen: CarouselPage},
 
     },
     {
