@@ -42,6 +42,11 @@ class StartPageV2 extends Component {
         this.props.navigation.navigate('CarouselPage')
     };
 
+    _btnClickV5 = () =>{
+        this.props.navigation.navigate('ImageGrid')
+    };
+
+
     render() {
         console.log("StartPageV2 props ->", this.props);
         const {loading} = this.props;
@@ -87,6 +92,12 @@ class StartPageV2 extends Component {
                                 </Text>
                             </TouchableOpacity>
 
+                            <TouchableOpacity style={styles.clickBtnViewV2}
+                                              onPress={() => this._btnClickV5()}>
+                                <Text style={styles.btnTxt}>
+                                    btn five
+                                </Text>
+                            </TouchableOpacity>
                         </View>
                 }
 

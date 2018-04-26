@@ -101,3 +101,61 @@ export const uniqueByKey = (array, key) => {
 
     return _result;
 };
+
+export const checkImage = (imageUrl) => {
+    if (truthy(imageUrl) && imageUrl.length > 1) {
+        return true
+    }
+    return false
+};
+
+export const getImgs = (item) => {
+    const imgs = [];
+    if (item === null) return imgs
+    if (item.img1 === null) return imgs
+    if (checkImage(item.img1)) {
+        imgs.push(item.img1)
+    }
+
+    if (item.img2 === null) return imgs
+    if (checkImage(item.img2)) {
+        imgs.push(item.img2)
+    }
+
+    if (item.img3 === null) return imgs
+    if (checkImage(item.img3)) {
+        imgs.push(item.img3)
+    }
+
+    if (item.img4 === null) return imgs
+    if (checkImage(item.img4)) {
+        imgs.push(item.img4)
+    }
+
+    if (item.img5 === null) return imgs
+    if (checkImage(item.img5)) {
+        imgs.push(item.img5)
+    }
+
+    if (item.img6 === null) return imgs
+    if (checkImage(item.img6)) {
+        imgs.push(item.img6)
+    }
+
+    if (item.img7 === null) return imgs
+    if (checkImage(item.img7)) {
+        imgs.push(item.img7)
+    }
+
+    if (item.img8 === null) return imgs
+    if (checkImage(item.img8)) {
+        imgs.push(item.img8)
+    }
+
+    if (item.img9 === null) return imgs
+    if (checkImage(item.img9)) {
+        imgs.push(item.img9)
+    }
+
+    return imgs
+};
