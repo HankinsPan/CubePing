@@ -26,5 +26,12 @@ module.exports = StyleSheet.create({
         marginTop: 25,
     },
 
+    imgPrevView: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(0,0,0,0.15)',
+    },
 
 });

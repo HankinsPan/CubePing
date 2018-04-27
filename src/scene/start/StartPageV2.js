@@ -46,6 +46,14 @@ class StartPageV2 extends Component {
         this.props.navigation.navigate('ImageGrid')
     };
 
+    _btnClickV6 = () =>{
+        this.props.navigation.navigate('AnimPage')
+    };
+
+    _btnClickV7 = () =>{
+        this.props.navigation.navigate('ImageCarousel')
+    };
+
 
     render() {
         console.log("StartPageV2 props ->", this.props);
@@ -96,6 +104,20 @@ class StartPageV2 extends Component {
                                               onPress={() => this._btnClickV5()}>
                                 <Text style={styles.btnTxt}>
                                     btn five
+                                </Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={styles.clickBtnViewV2}
+                                              onPress={() => this._btnClickV6()}>
+                                <Text style={styles.btnTxt}>
+                                    btn six
+                                </Text>
+                            </TouchableOpacity>
+
+                            <TouchableOpacity style={styles.clickBtnViewV2}
+                                              onPress={() => this._btnClickV7()}>
+                                <Text style={styles.btnTxt}>
+                                    btn seven
                                 </Text>
                             </TouchableOpacity>
                         </View>

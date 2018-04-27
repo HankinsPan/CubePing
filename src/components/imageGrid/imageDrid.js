@@ -4,7 +4,10 @@ import {
     Text,
     Image,
     ScrollView,
+    StatusBar,
+    StyleSheet,
     TouchableOpacity,
+    TouchableWithoutFeedback,
     ActivityIndicator,
     Dimensions,
 } from 'react-native';
@@ -13,7 +16,9 @@ import * as color from '../../utils/colors';
 import * as constants from '../../utils/constants';
 
 import {Col, Row, Grid} from 'react-native-easy-grid';
+
 import {getImgs, isEmpty, truthy} from "../../utils/index";
+import resolveAssetSource from 'resolveAssetSource';
 
 const styles = require('./styles');
 const window = Dimensions.get('window');
@@ -22,9 +27,70 @@ class ImageGrid extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            imgClick: false,
+
+            flowArray: [],
+
+            imgXArray: [],
+            imgNum: 0,
+        }
     }
 
+    componentWillMount() {
+        StatusBar.setBarStyle('dark-content');
+    }
+
+    componentDidMount() {
+        // let imgOne = getImgs(constants.imgItems)[2];
+        //
+        // console.log("ImageGrid img1 -==-=->", imgOne);
+        //
+        // console.log("imgSize -=-=-=---> ",
+        //     Image.getSize(imgOne,
+        //         (width, height) => {
+        //             console.log('imgSize fuck -=- width--->', width);
+        //             console.log('imgSize fuck -=- height--->', height);
+        //         }))
+
+        const imgUrl = getImgs(constants.imgItems);
+        let imgWHArray = [];
+        let xArray = [];
+
+        if (!isEmpty(imgUrl)) {
+
+            imgUrl.forEach((imgData, index) => {
+                console.log("img " + index + " _+_+_>", imgData)
+
+
+                Image.getSize(imgData, (width, height) => {
+                    const props = {
+                        iWidth: width,
+                        iHeight: height,
+                    };
+
+                    const xProps = {
+                        xNum: height / width,
+                    };
+
+                    imgWHArray.push(props);
+                    xArray.push(xProps);
+                });
+
+            })
+
+        }
+
+        console.log("img W&H array -=-=->", imgWHArray);
+
+        console.log("img X array -=-=->", xArray);
+
+        this.setState({
+            imgXArray: xArray,
+            flowArray: imgUrl,
+        })
+
+    }
 
     _buildImgs = (imgItem) => {
         if (imgItem === null) return [];
@@ -62,38 +128,58 @@ class ImageGrid extends Component {
 
     _imgClick = (idx) => {
         console.log("_imgClick idx =>", idx);
+        this.setState({
+            imgClick: true,
+            imgNum: idx,
+        })
     };
+
+    _largePicClick = () => {
+        this.setState({
+            imgClick: false,
+        })
+    };
+
 
     render() {
         console.log("ImageGrid props ->", this.props);
         console.log("ImageGrid state ->", this.state);
+        const {imgClick, imgXArray, imgNum, flowArray} = this.state;
 
         const imgs = this._buildImgs(constants.imgItems);
-        console.log("ImageGrid imgs ->", imgs.length);
+
+        console.log("imgs -=-=-=-->", imgs);
+
+        if (!isEmpty(imgXArray)) {
+            console.log("height xNum -=-> ", imgXArray[imgNum].xNum);
+        }
+
 
         return (
-            <View style={styles.container}>
-
+            <View style={imgClick ? styles.imgPrevView : styles.container}>
                 {
-                    isEmpty(imgs)
+                    imgClick
                         ?
-                        <ActivityIndicator
-                            size='large'
-                            color={color.TEXT_INFO_COLOR}
-                        />
+                        <TouchableWithoutFeedback onPress={() => this._largePicClick()}>
+                            <Image
+                                style={{
+                                    width: window.width,
+                                    height: window.width * imgXArray[imgNum].xNum,
+                                }}
+                                source={{uri: flowArray[imgNum]}}
+                            />
+                        </TouchableWithoutFeedback>
                         :
-                        <ScrollView>
-                            <View style={{
-                                width: window.width,
-                                height: window.width * 0.4 * imgs.length,
-                                marginTop: 25,
-                            }}>
+                        <View style={{
+                            width: window.width,
+                            height: window.width * 0.4 * imgs.length,
+                            marginTop: 25,
+                        }}>
 
-                                <Grid style={{marginRight: 5, marginLeft: 5}}>
-                                    {imgs}
-                                </Grid>
-                            </View>
-                        </ScrollView>
+                            <Grid style={{marginRight: 5, marginLeft: 5}}>
+                                {imgs}
+                            </Grid>
+                        </View>
                 }
 
             </View>
@@ -102,3 +188,4 @@ class ImageGrid extends Component {
 }
 
 export default ImageGrid
+

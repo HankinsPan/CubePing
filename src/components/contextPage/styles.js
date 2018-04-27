@@ -8,10 +8,28 @@ module.exports = StyleSheet.create({
 
     container: {
         flex: 1,
-        flexDirection: 'column',
-        backgroundColor: '#F2F2F2',
-
     },
 
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+    },
 
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+    },
+
+    image: {
+        width: 250,
+        height: 250,
+    },
+
+    resizeButton: {
+        color: '#333333',
+        fontWeight: 'bold',
+        marginBottom: 5,
+    }
 });

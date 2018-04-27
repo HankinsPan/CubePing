@@ -34,6 +34,8 @@ import VideoPlayerV2 from './components/videoPlayer/videoPlayerV2'
 import ContextPage from './components/contextPage/contextPageOne';
 import CarouselPage from './components/carouselPage/carouselPage';
 import ImageGrid from './components/imageGrid/imageDrid';
+import AnimPage from './components/animPage/animViewPage';
+import ImageCarousel from './components/imageCarousel/imageCarousel';
 
 const AppNavigator = StackNavigator(
     {
@@ -54,6 +56,8 @@ const AppNavigator = StackNavigator(
         ContextPage: {screen: ContextPage},
         CarouselPage: {screen: CarouselPage},
         ImageGrid: {screen: ImageGrid},
+        AnimPage: {screen: AnimPage},
+        ImageCarousel: {screen: ImageCarousel},
     },
     {
         headerMode: 'none',
