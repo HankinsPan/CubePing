@@ -2,9 +2,7 @@ import {NavigationActions, truthy, isEmpty, Storage} from '../utils/index';
 
 import * as movieServer from '../server/dBanServer';
 
-
 export default {
-
     namespace: 'start',
 
     state: {
@@ -21,8 +19,7 @@ export default {
 
     subscriptions: {
         setup({dispatch}) {
-
-        }
+        },
     },
 
     effects: {

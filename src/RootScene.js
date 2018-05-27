@@ -14,9 +14,11 @@ import {
 
 import {connect} from 'react-redux';
 
+import SplashScreen from 'react-native-splash-screen';
 import * as color from './utils/colors';
 import StartScene from './scene/start/StartPage';
 import StartSceneV2 from './scene/start/StartPageV2';
+import StartSceneV3 from './scene/start/StartPageV3';
 
 
 import ItemCheckPage from './components/itemCheck/itemCheckPage';
@@ -36,6 +38,10 @@ import CarouselPage from './components/carouselPage/carouselPage';
 import ImageGrid from './components/imageGrid/imageDrid';
 import AnimPage from './components/animPage/animViewPage';
 import ImageCarousel from './components/imageCarousel/imageCarousel';
+import PdfPage from './components/pdfPage/pdfScene';
+
+import DomPage from './components/domPage/domPage';
+import CallBackScene from './components/callBackPage/callBackPage';
 
 const AppNavigator = StackNavigator(
     {
@@ -58,6 +64,10 @@ const AppNavigator = StackNavigator(
         ImageGrid: {screen: ImageGrid},
         AnimPage: {screen: AnimPage},
         ImageCarousel: {screen: ImageCarousel},
+        DomPage: {screen: DomPage},
+        PdfPage: {screen: PdfPage},
+
+        CallBackPage: {screen: CallBackScene},
     },
     {
         headerMode: 'none',

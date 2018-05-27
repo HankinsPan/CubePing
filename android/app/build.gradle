@@ -73,7 +73,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "index.js"
+        entryFile: "index.js"
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -126,7 +126,7 @@ android {
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
-            def versionCodes = ["armeabi-v7a":1, "x86":2]
+            def versionCodes = ["armeabi-v7a": 1, "x86": 2]
             def abi = output.getFilter(OutputFile.ABI)
             if (abi != null) {  // null for the universal-debug, universal-release variants
                 output.versionCodeOverride =
@@ -137,6 +137,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-splash-screen')
+    compile project(':react-native-pdf')
+    compile project(':react-native-fetch-blob')
     compile project(':react-native-image-resizer')
     compile project(':react-native-video')
     compile project(':react-native-linear-gradient')
@@ -155,7 +158,7 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 project.ext.vectoricons = [
-        iconFontNames:['MaterialIcons.ttf','FontAwesome.ttf','Ionicons.ttf',]
+        iconFontNames: ['MaterialIcons.ttf', 'FontAwesome.ttf', 'Ionicons.ttf',]
 ];
 
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
