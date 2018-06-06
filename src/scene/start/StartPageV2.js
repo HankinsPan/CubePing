@@ -43,7 +43,8 @@ class StartPageV2 extends Component {
     };
 
     _btnClickV2 = () => {
-        this.props.navigation.navigate("VideoPage");
+        // this.props.navigation.navigate("VideoPage");
+        this.props.navigation.navigate("LiveTabPage");
     };
 
     _btnClickV3 = () => {
@@ -76,6 +77,10 @@ class StartPageV2 extends Component {
 
     _btnClickVA = (backProps) => {
         this.props.navigation.navigate("CallBackPage", backProps);
+    };
+
+    _btnClickVB = () => {
+        this.props.navigation.navigate("ScrollPage");
     };
 
     render() {
@@ -166,6 +171,13 @@ class StartPageV2 extends Component {
                                           onPress={() => this._btnClickVA(backProps)}>
                             <Text style={styles.btnTxt}>
                                 BTN TO ANDROID
+                            </Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.clickBtnViewV2}
+                                          onPress={() => this._btnClickVB()}>
+                            <Text style={styles.btnTxt}>
+                                BTN SCROLLVIEW
                             </Text>
                         </TouchableOpacity>
                     </View>
