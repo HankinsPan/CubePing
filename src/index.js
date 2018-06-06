@@ -8,6 +8,7 @@ import routerModel from "./models/router";
 import movieModel from "./models/movie";
 import startModel from "./models/start";
 import tabLiveModel from "./models/tabLive";
+import imgLoadModel from "./models/imgLoad";
 
 const app = dva({
     initialState: {},
@@ -15,7 +16,8 @@ const app = dva({
         routerModel,
         movieModel,
         startModel,
-        tabLiveModel
+        tabLiveModel,
+        imgLoadModel
     ],
     onAction: [routerMiddleware],
     onError(e) {
