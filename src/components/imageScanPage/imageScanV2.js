@@ -38,16 +38,14 @@ class ImageScanV2 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            insArray: [],
             imgClick: false,
 
-            //当前显示的图片索引
-            currentIndex: 0
+            imgKey: 0
         };
 
         // this.dragStart = this.dragStart.bind(this);
         // this.dragEnd = this.dragEnd.bind(this);
-        // this.onAnnotationEnd = this.onAnnotationEnd.bind(this);
+        this.onAnnotationEnd = this.onAnnotationEnd.bind(this);
     }
 
     // componentWillMount() {
@@ -77,66 +75,79 @@ class ImageScanV2 extends Component {
     };
 
     _viShowClick = (key) => {
-        // console.log("_viShowClick key -->", key);
-        // console.log("_imgs -=-->", _imgs);
-
-        let cutBodyArray = _imgs.slice(key, _imgs.length);
-        let cutHeadArray = _imgs.slice(0, key);
-
-        let _insArray = cutBodyArray.concat(cutHeadArray);
-
-
-        console.log("cutBodyArray -=->", cutBodyArray);
-        console.log("cutHeadArray -=->", cutHeadArray);
-
-        console.log("_insArray -=->", _insArray);
-
+        // // console.log("_viShowClick key -->", key);
+        // // console.log("_imgs -=-->", _imgs);
+        //
+        // // let cutBodyArray = _imgs.slice(key, _imgs.length);
+        // // let cutHeadArray = _imgs.slice(0, key);
+        // //
+        // // let _insArray = cutBodyArray.concat(cutHeadArray);
+        //
+        // let _keyHead = [];
+        // let _keyBody = [];
+        // for (let i = 0; i < key; i++) {
+        //     _keyHead.push(i);
+        // }
+        //
+        // for (let j = key; j < _imgs.length; j++) {
+        //     _keyBody.push(j);
+        // }
+        //
+        // let insKey = _keyBody.concat(_keyHead);
+        //
+        // // console.log("cutBodyArray -=->", cutBodyArray);
+        // // console.log("cutHeadArray -=->", cutHeadArray);
+        // //
+        // // console.log("_insArray -=->", _insArray);
+        // console.log("insKey -=-->", insKey);
 
         this.setState({
             imgClick: true,
-            currentIndex: key,
-            insArray: _insArray
+            imgKey: key
         });
-
 
     };
 
     _renderScrollImage = (key) => {
         console.log("_renderScrollImage key -=-->", key);
+
         return (
           <TouchableWithoutFeedback key={key}
                                     onPress={() => this._showImgClick()}>
               <Image
                 key={key}
                 style={styles.visImgView}
-                source={this.state.insArray[key - 1]}
+                // source={_imgs[this.state.imgKey]}
+                source={_imgs[key - 1]}
                 resizeMode={"contain"}
               />
           </TouchableWithoutFeedback>
         );
+
+
     };
 
-    //开始拖动，关闭定时器
+    // //开始拖动，关闭定时器
     // dragStart = () => {
     //     console.log("dragStart ");
     // };
-    //拖动结束，开启定时器
+    // //拖动结束，开启定时器
     // dragEnd = () => {
     //     // const ScrollView = this.refs.scrollView;
     //     // console.log("dragEnd ScrollView ->",ScrollView);
     //     console.log("dragEnd ");
     // };
 
-    ///当一帧滚动完毕时，重新设置当前图片的索引
-    // onAnnotationEnd(e) {
-    //     const offSetX = e.nativeEvent.contentOffset.x;
-    //     const currentIndex = offSetX / window.width;
-    //
-    //     console.log("onAnnotationEnd currentIndex -=-->", currentIndex);
-    //     this.setState({
-    //         currentIndex: currentIndex
-    //     });
-    // }
+    //当一帧滚动完毕时，重新设置当前图片的索引
+    onAnnotationEnd(e) {
+        const offSetX = e.nativeEvent.contentOffset.x;
+        const currentIndex = offSetX / window.width;
+
+        console.log("onAnnotationEnd currentIndex -=-->", currentIndex);
+        this.setState({
+            imgKey: currentIndex
+        });
+    }
 
     render() {
         // console.log("ImageScanV2 props ->", this.props);
@@ -152,7 +163,8 @@ class ImageScanV2 extends Component {
                       ref="scrollView"
                       contentContainerStyle={{
                           flexDirection: "row",
-                          alignItems: "center"
+                          alignItems: "center",
+                          justifyContent: "center"
                       }}
                       showsHorizontalScrollIndicator={false}
                       maximumZoomScale={2.0}    // 子组件(图片)放大倍数
@@ -162,7 +174,7 @@ class ImageScanV2 extends Component {
                       pagingEnabled={true}
                       // onScrollBeginDrag={this.dragStart}
                       // onScrollEndDrag={this.dragEnd}
-                      //onMomentumScrollEnd={this.onAnnotationEnd}   // 当一帧滚动完毕的时候调用
+                      onMomentumScrollEnd={this.onAnnotationEnd}   // 当一帧滚动完毕的时候调用
                     >
                         {
                             _imgs.map((key) => this._renderScrollImage(key))

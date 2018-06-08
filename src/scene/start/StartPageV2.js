@@ -50,7 +50,9 @@ class StartPageV2 extends Component {
     _btnClickV3 = () => {
         // this.props.navigation.navigate("ContextPage");
         // this.props.navigation.navigate("ImgScanPage");
-        this.props.navigation.navigate("ImgScanV2");
+        // this.props.navigation.navigate("ImgScanV2");
+        // this.props.navigation.navigate("ImgScanV3");
+        this.props.navigation.navigate("ImgTypeSet");
     };
 
     _btnClickV4 = () => {

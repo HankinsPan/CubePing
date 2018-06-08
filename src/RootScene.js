@@ -46,6 +46,8 @@ import ScrollPage from "./components/scrollPage/scrollPage";
 import LiveTabPage from "./components/liveTabPage/liveTabPage";
 import ImgScanPage from "./components/imageScanPage/imageScanPage";
 import ImgScanV2 from "./components/imageScanPage/imageScanV2";
+import ImgScanV3 from "./components/imageScanPage/imageScanV3";
+import ImgTypeSet from './components/imageScanPage/imgTypeSet';
 
 const AppNavigator = StackNavigator(
   {
@@ -76,7 +78,9 @@ const AppNavigator = StackNavigator(
       ScrollPage: { screen: ScrollPage },
       LiveTabPage: { screen: LiveTabPage },
       ImgScanPage: { screen: ImgScanPage },
-      ImgScanV2: { screen: ImgScanV2 }
+      ImgScanV2: { screen: ImgScanV2 },
+      ImgScanV3: { screen: ImgScanV3 },
+      ImgTypeSet: { screen: ImgTypeSet },
   },
   {
       headerMode: "none",

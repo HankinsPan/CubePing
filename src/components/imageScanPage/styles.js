@@ -9,8 +9,15 @@ module.exports = StyleSheet.create({
 
     container: {
         flex: 1,
-        alignItems: "center",
-        paddingTop: 20
+        alignItems: "center"
+    },
+
+    orgView: {
+        flex: 1,
+        paddingTop: 80,
+
+        justifyContent: "center",
+        backgroundColor: "#FFF"
     },
 
     showImgView: {
@@ -18,6 +25,15 @@ module.exports = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "rgba(0,0,0,0.85)"
+    },
+
+    showImgViewV2: {
+        width: window.width,
+        height: window.width / 3,
+        flexDirection: "row",
+        flexWrap: "wrap",
+        backgroundColor: "rgba(0,0,0,0.05)"
+
     },
 
     scrollContainer: {

@@ -38,11 +38,11 @@ export const MOVIE_ID = 'id';
 
 export const imgItems = {
     img1: 'https://i.imgur.com/UYiroysl.jpg',
-    img2: 'https://i.imgur.com/UPrs1EWl.jpg',
+    // img2: 'https://i.imgur.com/UPrs1EWl.jpg',
     img3: 'https://i.imgur.com/MABUbpDl.jpg',
     img4: 'https://i.imgur.com/KZsmUi2l.jpg',
-    img5: 'https://i.imgur.com/2nCt3Sbl.jpg',
-    img6: 'https://i.imgur.com/lceHsT6l.jpg',
+    // img5: 'https://i.imgur.com/2nCt3Sbl.jpg',
+    // img6: 'https://i.imgur.com/lceHsT6l.jpg',
     img7: 'https://i.imgur.com/UYiroysl.jpg',
     img8: 'https://i.imgur.com/UYiroysl.jpg',
     // img9: 'https://i.imgur.com/UYiroysl.jpg',
