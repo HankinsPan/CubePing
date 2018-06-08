@@ -44,6 +44,8 @@ import DomPage from "./components/domPage/domPage";
 import CallBackScene from "./components/callBackPage/callBackPage";
 import ScrollPage from "./components/scrollPage/scrollPage";
 import LiveTabPage from "./components/liveTabPage/liveTabPage";
+import ImgScanPage from "./components/imageScanPage/imageScanPage";
+import ImgScanV2 from "./components/imageScanPage/imageScanV2";
 
 const AppNavigator = StackNavigator(
   {
@@ -72,7 +74,9 @@ const AppNavigator = StackNavigator(
       CallBackPage: { screen: CallBackScene },
 
       ScrollPage: { screen: ScrollPage },
-      LiveTabPage: { screen: LiveTabPage }
+      LiveTabPage: { screen: LiveTabPage },
+      ImgScanPage: { screen: ImgScanPage },
+      ImgScanV2: { screen: ImgScanV2 }
   },
   {
       headerMode: "none",
