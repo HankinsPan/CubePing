@@ -51,12 +51,13 @@ class StartPageV2 extends Component {
         // this.props.navigation.navigate("ContextPage");
         // this.props.navigation.navigate("ImgScanPage");
         // this.props.navigation.navigate("ImgScanV2");
-        // this.props.navigation.navigate("ImgScanV3");
-        this.props.navigation.navigate("ImgTypeSet");
+        this.props.navigation.navigate("ImgScanV3");
+        // this.props.navigation.navigate("ImgTypeSet");
     };
 
     _btnClickV4 = () => {
-        this.props.navigation.navigate("CarouselPage");
+        // this.props.navigation.navigate("CarouselPage");
+        this.props.navigation.navigate("ScrollPageV2");
     };
 
     _btnClickV5 = () => {
@@ -64,7 +65,8 @@ class StartPageV2 extends Component {
     };
 
     _btnClickV6 = () => {
-        this.props.navigation.navigate("AnimPage");
+        // this.props.navigation.navigate("AnimPage");
+        this.props.navigation.navigate("TextInputBar");
     };
 
     _btnClickV7 = () => {

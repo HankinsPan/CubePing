@@ -35,6 +35,7 @@ import VideoPlayer from "./components/videoPlayer/videoPlayer";
 import VideoPlayerV2 from "./components/videoPlayer/videoPlayerV2";
 import ContextPage from "./components/contextPage/contextPageOne";
 import CarouselPage from "./components/carouselPage/carouselPage";
+import ScrollPageH from "./components/carouselPage/scrollPage";
 import ImageGrid from "./components/imageGrid/imageDrid";
 import AnimPage from "./components/animPage/animViewPage";
 import ImageCarousel from "./components/imageCarousel/imageCarousel";
@@ -47,7 +48,8 @@ import LiveTabPage from "./components/liveTabPage/liveTabPage";
 import ImgScanPage from "./components/imageScanPage/imageScanPage";
 import ImgScanV2 from "./components/imageScanPage/imageScanV2";
 import ImgScanV3 from "./components/imageScanPage/imageScanV3";
-import ImgTypeSet from './components/imageScanPage/imgTypeSet';
+import ImgTypeSet from "./components/imageScanPage/imgTypeSet";
+import TextInputBar from "./components/textInputBar/textInputBar";
 
 const AppNavigator = StackNavigator(
   {
@@ -67,6 +69,7 @@ const AppNavigator = StackNavigator(
       VideoPage: { screen: VideoPlayerV2 },
       ContextPage: { screen: ContextPage },
       CarouselPage: { screen: CarouselPage },
+      ScrollPageV2: { screen: ScrollPageH },
       ImageGrid: { screen: ImageGrid },
       AnimPage: { screen: AnimPage },
       ImageCarousel: { screen: ImageCarousel },
@@ -81,6 +84,7 @@ const AppNavigator = StackNavigator(
       ImgScanV2: { screen: ImgScanV2 },
       ImgScanV3: { screen: ImgScanV3 },
       ImgTypeSet: { screen: ImgTypeSet },
+      TextInputBar: { screen: TextInputBar }
   },
   {
       headerMode: "none",

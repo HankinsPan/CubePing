@@ -16,6 +16,7 @@
     "react-native-canvas": "^0.1.20",
     "react-native-card-carousel": "^1.1.0",
     "react-native-card-media": "^0.1.0",
+    "react-native-carousel-pager": "^1.5.0",
     "react-native-check-box": "^2.0.2",
     "react-native-draggable": "^1.0.13",
     "react-native-easy-grid": "^0.1.17",

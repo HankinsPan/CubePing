@@ -16,15 +16,14 @@ module.exports = StyleSheet.create({
         flex: 1,
         paddingTop: 80,
 
-        justifyContent: "center",
-        backgroundColor: "#FFF"
+        // justifyContent: "center",
     },
 
     showImgView: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "rgba(0,0,0,0.85)"
+        // backgroundColor: "rgba(0,0,0,0.85)"
     },
 
     showImgViewV2: {
@@ -55,11 +54,28 @@ module.exports = StyleSheet.create({
         top: 0
     },
 
+    visBaView: {
+        alignItems: "flex-end",
+        justifyContent: "center",
+        padding: 10,
+        width: window.width - 4,
+        height: window.width * 0.15,
+        marginLeft: 2,
+        marginRight: 2,
+        marginTop: -window.width * 0.15,
+        backgroundColor: "rgba(255,255,255,0.75)"
+    },
+
     cubeView: {
         width: 100,
         height: 100,
         marginTop: 100,
         marginLeft: 100
+    },
+
+    visText: {
+        fontSize: 25,
+        color: color.HANKINS_BG
     },
 
     imgView: {

@@ -1,25 +1,36 @@
-import {StyleSheet, Platform, Dimensions} from 'react-native';
+import { StyleSheet, Platform, Dimensions } from "react-native";
 
-const window = Dimensions.get('window');
+const window = Dimensions.get("window");
 
-import * as color from '../../utils/colors';
+import * as color from "../../utils/colors";
 
 module.exports = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#F2F2F2',
+        backgroundColor: "#F2F2F2"
     },
 
     cardView: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center",
         backgroundColor: color.STATE_TIPS,
 
         borderRadius: 15,
-        shadowColor: 'rgba(0,0,0,0.15)',
+        shadowColor: "rgba(0,0,0,0.15)"
     },
+
+    sCardView: {
+        width: window.width * 0.8,
+        height: window.width * 0.45,
+        backgroundColor: color.STATE_TIPS
+    },
+
+    pageTxt: {
+        fontSize: 20,
+        color: "#FFF"
+    }
 
 
 });
