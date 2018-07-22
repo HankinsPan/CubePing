@@ -19,6 +19,7 @@ import * as color from "./utils/colors";
 import StartScene from "./scene/start/StartPage";
 import StartSceneV2 from "./scene/start/StartPageV2";
 import StartSceneV3 from "./scene/start/StartPageV3";
+import StartSceneV4 from './scene/start/StartPageV4';
 
 
 import ItemCheckPage from "./components/itemCheck/itemCheckPage";
@@ -50,10 +51,14 @@ import ImgScanV2 from "./components/imageScanPage/imageScanV2";
 import ImgScanV3 from "./components/imageScanPage/imageScanV3";
 import ImgTypeSet from "./components/imageScanPage/imgTypeSet";
 import TextInputBar from "./components/textInputBar/textInputBar";
+import ImgScanPageV2 from "./components/imgScanPageV2/ImgScanPageV2";
+
+import NukaCarousel from "./components/nukaCarousel/nukaCarousel";
+import SmallPage from "./components/smallPage/smallPage";
 
 const AppNavigator = StackNavigator(
   {
-      Main: { screen: StartSceneV2 },
+      Main: { screen: StartSceneV4 },
 
       ItemCheck: { screen: ItemCheckPage },
       Draggable: { screen: DraggablePage },
@@ -84,7 +89,10 @@ const AppNavigator = StackNavigator(
       ImgScanV2: { screen: ImgScanV2 },
       ImgScanV3: { screen: ImgScanV3 },
       ImgTypeSet: { screen: ImgTypeSet },
-      TextInputBar: { screen: TextInputBar }
+      TextInputBar: { screen: TextInputBar },
+      ImgScanPageV2: { screen: ImgScanPageV2 },
+      NukaCarousel: { screen: NukaCarousel },
+      SmallPage: { screen: SmallPage }
   },
   {
       headerMode: "none",

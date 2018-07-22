@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {
     View,
     Text,
+    Image,
     ScrollView,
     Touchable,
     Dimensions,
@@ -14,6 +15,22 @@ const styles = require("./styles");
 const pageArray = ["A", "B", "C", "D", "E", "F"];
 import CarouselPager from "react-native-carousel-pager";
 import * as color from "../../utils/colors";
+
+const _imgs = [
+    require("../../images/pic/pic_one.jpg"),
+    require("../../images/pic/pic_two.png"),
+    require("../../images/pic/pic_seven.jpg"),
+    require("../../images/pic/pic_six.png"),
+    require("../../images/pic/pic_five.jpeg"),
+    require("../../images/pic/pic_three.jpg"),
+    // require("../../images/pic/pic_egit.jpg"),
+    // require("../../images/pic/pic_four.jpeg"),
+    // require("../../images/pic/pic_egit.jpg"),
+    // require("../../images/pic/pic_four.jpeg"),
+    // require("../../images/pic/pic_egit.jpg"),
+    // require("../../images/pic/pic_four.jpeg"),
+    // require("../../images/pic/pic_one.jpg")
+];
 
 
 class ScrollPageH extends Component {
@@ -50,18 +67,17 @@ class ScrollPageH extends Component {
                              onPageChange={(page) => this._pageChange(page)}
                              pageStyle={{
                                  height: window.width * 0.45,
-                                 backgroundColor: color.STATE_TIPS
+                                 justifyContent: "center"
                              }}>
                   {
-                      pageArray.map((pageKey, key) => {
+                      _imgs.map((pageData, key) => {
                           return (
-                            <TouchableWithoutFeedback key={key}
-                                                      onPress={() => this._imgClick(key)}>
-                                <View style={{ flex: 1 }}>
-                                    <Text style={styles.pageTxt} key={key}>
-                                        {pageKey}
-                                    </Text>
-                                </View>
+                            <TouchableWithoutFeedback key={key} onPress={() => this._imgClick(key)}>
+                                <Image
+                                  style={{ width: window.width,}}
+                                  resizeMode={"contain"}
+                                  source={pageData}
+                                />
                             </TouchableWithoutFeedback>
                           );
                       })

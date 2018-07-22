@@ -35,9 +35,13 @@ class ScrollPage extends Component {
         );
     }
 
+
+    _pageChanged = (page) => {
+        console.log("_pageChanged page -=-->", page);
+    };
+
     render() {
         console.log("ScrollPage props ->", this.props);
-
 
 
         return (
@@ -57,6 +61,7 @@ class ScrollPage extends Component {
                     cardSmallSide: 150 * 0.85,
                     cardSpace: window.width * (1 - 0.85) / 2 * 0.2
                 }}
+                onPageScrolled={(page) => this._pageChanged(page)}
               />
 
           </View>

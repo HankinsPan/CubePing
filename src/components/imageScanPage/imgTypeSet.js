@@ -4,37 +4,12 @@ import {
     Image,
     Text,
     TouchableOpacity,
-    Dimensions,
-    Platform
+    Dimensions
 } from "react-native";
 import { isEmpty } from "../../utils";
 
 const window = Dimensions.get("window");
 const _defImg = require("./../../images/pic/pic_defs.png");
-
-// const _imgs = [
-//     require("../../images/pic/pic_one.jpg"),
-//     require("../../images/pic/pic_two.png"),
-//     require("../../images/pic/pic_seven.jpg"),
-//     require("../../images/pic/pic_six.png"),
-//     require("../../images/pic/pic_five.jpeg"),
-//     require("../../images/pic/pic_three.jpg"),
-//     require("../../images/pic/pic_egit.jpg")
-//     // require("../../images/pic/pic_four.jpeg"),
-//     // require("../../images/pic/pic_egit.jpg"),
-//     // require("../../images/pic/pic_four.jpeg"),
-//     // require("../../images/pic/pic_egit.jpg"),
-//     // require("../../images/pic/pic_four.jpeg"),
-//     // require("../../images/pic/pic_one.jpg")
-// ];
-// const _imgs = [
-//     "https://i.imgur.com/UYiroysl.jpg",
-//     "https://i.imgur.com/UPrs1EWl.jpg",
-//     "https://i.imgur.com/MABUbpDl.jpg",
-//     "https://i.imgur.com/KZsmUi2l.jpg",
-//     "https://i.imgur.com/2nCt3Sbl.jpg"
-// ];
-
 
 const styles = require("./styles");
 
@@ -82,14 +57,10 @@ class ImgTypeSet extends Component {
         }
     }
 
-    visImgClick = (key) => {
-        console.log("visImgClick key -=-->", key);
-    };
-
 
     render() {
-        console.log("ImgTypeSet props ->", this.props);
-        console.log("ImgTypeSet state ->", this.state);
+        // console.log("ImgTypeSet props ->", this.props);
+        // console.log("ImgTypeSet state ->", this.state);
         const { imgLineA, imgLineB, imgLineC } = this.state;
         const { imgSource } = this.props;
         let picNum = imgSource.length - 9;
@@ -103,11 +74,14 @@ class ImgTypeSet extends Component {
                     <View style={styles.showImgViewV2}>
                         {
                             imgLineA.map((imgData, key) => {
+
+                                console.log("ImgTypeSet ----->", imgData);
+                                console.log("typeof -=--> ", typeof imgData);
+
                                 return (
                                   <TouchableOpacity key={key}
                                                     style={{ flex: 1 }}
                                                     activeOpacity={0.8}
-                                    // onPress={() => this.visImgClick(key)}>
                                                     onPress={() => this.props.onPress(key)}>
                                       <Image
                                         key={key}
@@ -119,7 +93,7 @@ class ImgTypeSet extends Component {
                                         source={
                                             (typeof imgData) === "number"
                                               ? imgData
-                                              : { uri: imgData, cache: "only-if-cached" }
+                                              : { uri: imgData }
                                         }
                                         defaultSource={_defImg}
                                       />
@@ -141,8 +115,7 @@ class ImgTypeSet extends Component {
                                   <TouchableOpacity key={key}
                                                     style={{ flex: 1 }}
                                                     activeOpacity={0.8}
-                                                    // onPress={() => this.visImgClick(key)}>
-                                                    onPress={() => this.props.onPress(key)}>
+                                                    onPress={() => this.props.onPress(3 + key)}>
                                       <Image
                                         key={key}
                                         style={{
@@ -153,7 +126,7 @@ class ImgTypeSet extends Component {
                                         source={
                                             (typeof imgData) === "number"
                                               ? imgData
-                                              : { uri: imgData, cache: "only-if-cached" }
+                                              : { uri: imgData }
                                         }
                                         defaultSource={_defImg}
                                       />
@@ -176,8 +149,7 @@ class ImgTypeSet extends Component {
                                   <TouchableOpacity key={key}
                                                     style={{ flex: 1 }}
                                                     activeOpacity={0.8}
-                                                    // onPress={() => this.visImgClick(key)}>
-                                                    onPress={() => this.props.onPress(key)}>
+                                                    onPress={() => this.props.onPress(6 + key)}>
                                       <Image
                                         key={key}
                                         style={{
@@ -188,7 +160,7 @@ class ImgTypeSet extends Component {
                                         source={
                                             (typeof imgData) === "number"
                                               ? imgData
-                                              : { uri: imgData, cache: "only-if-cached" }
+                                              : { uri: imgData }
                                         }
                                         defaultSource={_defImg}
                                       />
@@ -215,24 +187,3 @@ class ImgTypeSet extends Component {
 }
 
 export default ImgTypeSet;
-
-
-// {
-//     _imgs.map((imgData, key) => {
-//         return (
-//           <TouchableOpacity key={key}
-//                             activeOpacity={0.8}
-//                             onPress={() => this.visImgClick(key)}>
-//               <Image
-//                 key={key}
-//                 style={{
-//                     width: window.width * 0.32,
-//                     height: window.width * 0.32,
-//                     margin: 2
-//                 }}
-//                 source={imgData}
-//               />
-//           </TouchableOpacity>
-//         );
-//     })
-// }

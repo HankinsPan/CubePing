@@ -14,7 +14,7 @@ module.exports = StyleSheet.create({
 
     orgView: {
         flex: 1,
-        paddingTop: 80
+        // paddingTop: 80
         // justifyContent: "center",
     },
 
@@ -27,6 +27,8 @@ module.exports = StyleSheet.create({
 
     orgScrollView: {
         flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
         backgroundColor: `rgba(0,0,0,0.85)`
     },
 

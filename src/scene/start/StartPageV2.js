@@ -56,8 +56,8 @@ class StartPageV2 extends Component {
     };
 
     _btnClickV4 = () => {
-        // this.props.navigation.navigate("CarouselPage");
-        this.props.navigation.navigate("ScrollPageV2");
+        this.props.navigation.navigate("CarouselPage");
+        // this.props.navigation.navigate("ScrollPageV2");
     };
 
     _btnClickV5 = () => {
@@ -70,11 +70,13 @@ class StartPageV2 extends Component {
     };
 
     _btnClickV7 = () => {
-        this.props.navigation.navigate("ImageCarousel");
+        // this.props.navigation.navigate("ImageCarousel");
+        this.props.navigation.navigate("ImgScanPageV2");
     };
 
     _btnClickV8 = () => {
         this.props.navigation.navigate("DomPage");
+        // this.props.navigation.navigate("NukaCarousel");
     };
 
     _btnClickV9 = () => {
@@ -87,6 +89,10 @@ class StartPageV2 extends Component {
 
     _btnClickVB = () => {
         this.props.navigation.navigate("ScrollPage");
+    };
+
+    _btnClickVC = () => {
+        this.props.navigation.navigate("SmallPage");
     };
 
     render() {
@@ -184,6 +190,13 @@ class StartPageV2 extends Component {
                                           onPress={() => this._btnClickVB()}>
                             <Text style={styles.btnTxt}>
                                 BTN SCROLLVIEW
+                            </Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity style={styles.clickBtnViewV2}
+                                          onPress={() => this._btnClickVC()}>
+                            <Text style={styles.btnTxt}>
+                                BTN SMALLPAGE
                             </Text>
                         </TouchableOpacity>
                     </View>

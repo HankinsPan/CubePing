@@ -8,17 +8,14 @@ module.exports = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: "#F2F2F2"
+        backgroundColor: "#FFF"
     },
 
-    cardView: {
+    carCardView: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: color.STATE_TIPS,
-
-        borderRadius: 15,
-        shadowColor: "rgba(0,0,0,0.15)"
+        backgroundColor: "#FFF"
     },
 
     sCardView: {
