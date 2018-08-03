@@ -19,7 +19,7 @@ import * as color from "./utils/colors";
 import StartScene from "./scene/start/StartPage";
 import StartSceneV2 from "./scene/start/StartPageV2";
 import StartSceneV3 from "./scene/start/StartPageV3";
-import StartSceneV4 from './scene/start/StartPageV4';
+import StartSceneV4 from "./scene/start/StartPageV4";
 
 
 import ItemCheckPage from "./components/itemCheck/itemCheckPage";
@@ -30,6 +30,9 @@ import SlidePage from "./components/slideCard/slideCard";
 import StatusPage from "./components/statusPages/statusBarPage";
 
 import SearchPage from "./components/search/searchPage";
+import SearchPageV2 from "./components/search/searchPageV2";
+import SearchPageV3 from "./components/search/searchPageV3";
+
 import AreaPage from "./components/areaPage/areaPage";
 import ToastPage from "./components/toastPage/toastPage";
 import VideoPlayer from "./components/videoPlayer/videoPlayer";
@@ -58,7 +61,7 @@ import SmallPage from "./components/smallPage/smallPage";
 
 const AppNavigator = StackNavigator(
   {
-      Main: { screen: StartSceneV4 },
+      Main: { screen: StartScene },
 
       ItemCheck: { screen: ItemCheckPage },
       Draggable: { screen: DraggablePage },
@@ -68,6 +71,8 @@ const AppNavigator = StackNavigator(
       StatusPage: { screen: StatusPage },
 
       Search: { screen: SearchPage },
+      SearchUp: { screen: SearchPageV2 },
+      SearchNew: { screen: SearchPageV3 },
       AreaPage: { screen: AreaPage },
 
       ToastPage: { screen: ToastPage },

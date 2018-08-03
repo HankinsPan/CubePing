@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
     View,
     Text,
@@ -6,159 +6,166 @@ import {
     ART,
     Alert,
     TouchableOpacity,
-    TouchableWithoutFeedback,
+    TouchableWithoutFeedback
 
-} from 'react-native'
+} from "react-native";
 
-import * as color from '../../utils/colors'
-import Canvas from 'react-native-canvas';
+import * as ScreenUtil from "../../utils/ScreenUtil";
+import * as color from "../../utils/colors";
+import Canvas from "react-native-canvas";
 import ViewShot from "react-native-view-shot";
 
-const styles = require('./styles');
+const styles = require("./styles");
 
 class StartPage extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            comImgUri: '',
-        }
+            comImgUri: ""
+        };
     }
 
-    // componentDidMount() {
-    // this.refs.viewShot.capture().then(uri => {
-    //     console.log("do something with ", uri);
-    //     this.setState({
-    //         comImgUri: uri,
-    //     })
-    //
-    // });
-
-    // console.log("**** canvas ->", canvas.getContext('2d'));
-    // }
-
-
-    // handleCanvas = (canvas) => {
-    //     const ctx = canvas.getContext('2d');
-    //     ctx.fillStyle = 'purple';
-    //     ctx.fillRect(0, 0, 100, 100);
-    // };
 
     componentWillUnmount() {
         this.timer && clearTimeout(this.timer);
     }
 
     _getView2Img = () => {
-        console.log("_getView2Img ")
+        console.log("_getView2Img ");
         this.refs.viewShot
-            .capture()
-            .then(uri => {
-                console.log("make shotView uri -> ", uri);
-                this.setState({
-                    comImgUri: uri,
-                })
-            });
+          .capture()
+          .then(uri => {
+              console.log("make shotView uri -> ", uri);
+              this.setState({
+                  comImgUri: uri
+              });
+          });
 
         this.timer = setTimeout(() => {
             Alert.alert(
-                'Long Press Alert',
-                'you can choose shotView to save your album',
-                [
-                    {text: 'Save', onPress: () => this._turnToAlbum()},
-                    {text: 'cancel'}
-                ],
-                {cancelable: false}
+              "Long Press Alert",
+              "you can choose shotView to save your album",
+              [
+                  { text: "Save", onPress: () => this._turnToAlbum() },
+                  { text: "cancel" }
+              ],
+              { cancelable: false }
             );
         }, 500);
 
     };
 
     _turnToAlbum = () => {
-        console.log("_turnToAlbum ")
+        console.log("_turnToAlbum ");
     };
 
     _startNextPage = () => {
-        console.log("_startNextPage ")
+        console.log("_startNextPage ");
         // this.props.navigation.navigate('Draggable')
-        this.props.navigation.navigate('SwiperPage')
+        this.props.navigation.navigate("SwiperPage");
     };
 
     _startSlidePage = () => {
 
-        this.props.navigation.navigate('SlidePage');
+        this.props.navigation.navigate("SlidePage");
     };
 
     _startStatusPage = () => {
-        this.props.navigation.navigate('Search');
+        this.props.navigation.navigate("Search");
     };
 
-    _startAreaPage = () =>{
-        this.props.navigation.navigate('AreaPage')
+    _startSearchPage = () => {
+        this.props.navigation.navigate("SearchUp");
     };
 
-    _startToastPage = () =>{
-        this.props.navigation.navigate('ToastPage')
+    _searchNewPage = () =>{
+        this.props.navigation.navigate('SearchNew')
+    };
+
+    _startAreaPage = () => {
+        this.props.navigation.navigate("AreaPage");
+    };
+
+    _startToastPage = () => {
+        this.props.navigation.navigate("ToastPage");
     };
 
     render() {
-        console.log('SignPage props ->', this.props);
+        console.log("SignPage props ->", this.props);
 
 
         return (
-            <TouchableWithoutFeedback onLongPress={() => this._getView2Img()}>
-                <View style={styles.container}>
-                    <ViewShot
-                        ref="viewShot"
-                        options={{format: "jpg", quality: 0.9}}>
+          <TouchableWithoutFeedback onLongPress={() => this._getView2Img()}>
+              <View style={styles.container}>
+                  <ViewShot
+                    ref="viewShot"
+                    options={{ format: "jpg", quality: 0.9 }}>
 
-                        <TouchableOpacity style={styles.startView}
-                                          onPress={() => this._startNextPage()}>
-                            <Text style={styles.startTxt}>
-                                Start at here
-                            </Text>
-                        </TouchableOpacity>
+                      <TouchableOpacity style={styles.startView}
+                                        onPress={() => this._startNextPage()}>
+                          <Text style={styles.startTxt}>
+                              Start at here
+                          </Text>
+                      </TouchableOpacity>
 
 
-                        <View style={{marginTop: 30}}/>
+                      <View style={{ marginTop: 30 }}/>
 
-                        <TouchableOpacity style={styles.startView}
-                                          onPress={() => this._startSlidePage()}>
-                            <Text style={styles.startTxt}>
-                                Slide Page
-                            </Text>
-                        </TouchableOpacity>
+                      <TouchableOpacity style={styles.startView}
+                                        onPress={() => this._startSlidePage()}>
+                          <Text style={styles.startTxt}>
+                              Slide Page
+                          </Text>
+                      </TouchableOpacity>
 
-                        <View style={{marginTop: 30}}/>
-                        <TouchableOpacity style={styles.startView}
-                                          onPress={() => this._startStatusPage()}>
-                            <Text style={styles.startTxt}>
-                                SearchPage Page
-                            </Text>
-                        </TouchableOpacity>
+                      <View style={{ marginTop: 30 }}/>
+                      <TouchableOpacity style={styles.startView}
+                                        onPress={() => this._startStatusPage()}>
+                          <Text style={styles.startTxt}>
+                              SearchPage Page
+                          </Text>
+                      </TouchableOpacity>
 
-                        <View style={{marginTop: 30}}/>
-                        <TouchableOpacity style={styles.startView}
-                                          onPress={() => this._startAreaPage()}>
-                            <Text style={styles.startTxt}>
-                                Area Page
-                            </Text>
-                        </TouchableOpacity>
+                      <View style={{ marginTop: 30 }}/>
+                      <TouchableOpacity style={styles.startView}
+                                        onPress={() => this._startSearchPage()}>
+                          <Text style={styles.startTxt}>
+                              SearchPageUp Page
+                          </Text>
+                      </TouchableOpacity>
 
-                        <View style={{marginTop: 30}}/>
-                        <TouchableOpacity style={styles.startView}
-                                          onPress={() => this._startToastPage()}>
-                            <Text style={styles.startTxt}>
-                                Toast Page
-                            </Text>
-                        </TouchableOpacity>
-                    </ViewShot>
-                </View>
-            </TouchableWithoutFeedback>
-        )
+                      <View style={{ marginTop: 30 }}/>
+                      <TouchableOpacity style={styles.startView}
+                                        onPress={() => this._searchNewPage()}>
+                          <Text style={styles.startTxt}>
+                              searchNewPage Page
+                          </Text>
+                      </TouchableOpacity>
+
+                      <View style={{ marginTop: 30 }}/>
+                      <TouchableOpacity style={styles.startView}
+                                        onPress={() => this._startAreaPage()}>
+                          <Text style={styles.startTxt}>
+                              Area Page
+                          </Text>
+                      </TouchableOpacity>
+
+                      <View style={{ marginTop: 30 }}/>
+                      <TouchableOpacity style={styles.startView}
+                                        onPress={() => this._startToastPage()}>
+                          <Text style={styles.startTxt}>
+                              Toast Page
+                          </Text>
+                      </TouchableOpacity>
+                  </ViewShot>
+              </View>
+          </TouchableWithoutFeedback>
+        );
     }
 }
 
-export default StartPage
+export default StartPage;
 
 
 // <ViewShot

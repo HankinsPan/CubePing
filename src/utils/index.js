@@ -1,20 +1,20 @@
-export {NavigationActions} from 'react-navigation'
-import {Dimensions} from 'react-native';
+export { NavigationActions } from "react-navigation";
+import { Dimensions } from "react-native";
 
-const deviceH = Dimensions.get('window').height;
-const deviceW = Dimensions.get('window').width;
+export const deviceH = Dimensions.get("window").height;
+export const deviceW = Dimensions.get("window").width;
 
-export {default as Storage} from './storage'
+export { default as Storage } from "./storage";
 
 export const delay = time => new Promise(resolve => setTimeout(resolve, time));
 
-export const createAction = type => payload => ({type, payload});
+export const createAction = type => payload => ({ type, payload });
 
 export const truthy = (item) => {
     if (item === null || item === undefined) {
-        return false
+        return false;
     }
-    return true
+    return true;
 };
 
 
@@ -27,7 +27,7 @@ export const isEmptyObject = (e) => {
     var t;
     for (t in e)
         return false;
-    return true
+    return true;
 };
 
 
@@ -51,7 +51,7 @@ export const isEmpty = (obj) => {
 
     for (let key in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, key))
-            return true
+            return true;
     }
 
     return true;
@@ -68,7 +68,7 @@ export const uniqueByKey = (array, key) => {
     console.log(">-----> key ->", key);
 
     if (!truthy(array)) {
-        return array
+        return array;
     }
 
     let mArray = [];
@@ -90,12 +90,12 @@ export const uniqueByKey = (array, key) => {
         for (let j = 0; j < _result.length; j++) {
             if (item[key] === _result[j][key]) {
                 repeat = true;
-                break
+                break;
             }
         }
 
         if (!repeat) {
-            _result.push(item)
+            _result.push(item);
         }
     }
 
@@ -104,58 +104,58 @@ export const uniqueByKey = (array, key) => {
 
 export const checkImage = (imageUrl) => {
     if (truthy(imageUrl) && imageUrl.length > 1) {
-        return true
+        return true;
     }
-    return false
+    return false;
 };
 
 export const getImgs = (item) => {
     const imgs = [];
-    if (item === null) return imgs
-    if (item.img1 === null) return imgs
+    if (item === null) return imgs;
+    if (item.img1 === null) return imgs;
     if (checkImage(item.img1)) {
-        imgs.push(item.img1)
+        imgs.push(item.img1);
     }
 
-    if (item.img2 === null) return imgs
+    if (item.img2 === null) return imgs;
     if (checkImage(item.img2)) {
-        imgs.push(item.img2)
+        imgs.push(item.img2);
     }
 
-    if (item.img3 === null) return imgs
+    if (item.img3 === null) return imgs;
     if (checkImage(item.img3)) {
-        imgs.push(item.img3)
+        imgs.push(item.img3);
     }
 
-    if (item.img4 === null) return imgs
+    if (item.img4 === null) return imgs;
     if (checkImage(item.img4)) {
-        imgs.push(item.img4)
+        imgs.push(item.img4);
     }
 
-    if (item.img5 === null) return imgs
+    if (item.img5 === null) return imgs;
     if (checkImage(item.img5)) {
-        imgs.push(item.img5)
+        imgs.push(item.img5);
     }
 
-    if (item.img6 === null) return imgs
+    if (item.img6 === null) return imgs;
     if (checkImage(item.img6)) {
-        imgs.push(item.img6)
+        imgs.push(item.img6);
     }
 
-    if (item.img7 === null) return imgs
+    if (item.img7 === null) return imgs;
     if (checkImage(item.img7)) {
-        imgs.push(item.img7)
+        imgs.push(item.img7);
     }
 
-    if (item.img8 === null) return imgs
+    if (item.img8 === null) return imgs;
     if (checkImage(item.img8)) {
-        imgs.push(item.img8)
+        imgs.push(item.img8);
     }
 
-    if (item.img9 === null) return imgs
+    if (item.img9 === null) return imgs;
     if (checkImage(item.img9)) {
-        imgs.push(item.img9)
+        imgs.push(item.img9);
     }
 
-    return imgs
+    return imgs;
 };

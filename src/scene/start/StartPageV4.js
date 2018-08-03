@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import {
     View,
-    Image,
+    FlatList,
+    Text,
     StyleSheet
 } from "react-native";
-
 
 import BottomNavigation, {
     IconTab,
@@ -54,6 +54,26 @@ class StartPageV4 extends Component {
         activeTab: this.tabs[0].key
     };
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            demoList: []
+        };
+    }
+
+    componentWillMount() {
+        const vArray = [];
+
+        for (let i = 0; i < 30; i++) {
+            let itemName = `this is Num ${i} item`;
+            vArray.push(itemName);
+        }
+
+        this.setState({
+            demoList: vArray
+        });
+    }
+
 
     renderIcon = icon => ({ isActive }) => (
       <Icon size={24} color="white" name={icon}/>
@@ -70,12 +90,38 @@ class StartPageV4 extends Component {
       />
     );
 
+
+    _RenderItem = (item) => {
+        return (
+          <View style={{
+              flex: 1,
+              alignItems: "center",
+              marginTop: 10,
+              marginBottom: 10,
+              backgroundColor: "rgba(0,0,0,0.05)"
+          }}>
+
+              <Text style={{ fontSize: 18, color: "#999" }}>
+                  {item}
+              </Text>
+
+          </View>
+        );
+    };
+
     render() {
         console.log("StartPageV4 props ->", this.props);
 
         return (
           <View style={{ flex: 1, backgroundColor: "white" }}>
-              <View style={{ flex: 1, justifyContent: "flex-end" }}>
+              <View style={{ flex: 1 }}>
+
+                  <FlatList
+                    refreshing={false}
+                    onEndReachedThreshold={0}
+                    data={this.state.demoList}
+                    renderItem={({ item }) => this._RenderItem(item)}
+                  />
 
               </View>
               <BottomNavigation

@@ -30,18 +30,25 @@ class ImageScanPage extends Component {
 
     componentWillMount() {
         this._panResponder = PanResponder.create({
+            // 0.触摸开始
+
+
+            // 1.是否相应触摸
             onStartShouldSetPanResponder: (evt, gestureState) => {
                 return true;
             },
 
+            // 2. 是否相应触摸移动
             onMoveShouldSetPanResponder: (evt, gestureState) => {
                 return true;
             },
 
+            // 1.1 触摸开始的相应
             onPanResponderGrant: (evt, gestureState) => {
                 this._highlight();
             },
 
+            // 2.1 触摸移动中
             onPanResponderMove: (evt, gestureState) => {
                 // console.log(`locationX:${evt.nativeEvent.pageX} `);
                 // console.log(`locationY:${evt.nativeEvent.pageY} `);
@@ -58,12 +65,14 @@ class ImageScanPage extends Component {
                 });
             },
 
+            // 3. 触摸结束
             onPanResponderRelease: (evt, gestureState) => {
                 this._unhighlight();
                 this.lastX = this.state.marginLeft;
                 this.lastY = this.state.marginTop;
             },
 
+            // 2.2 触摸被其他响应者打断
             onPanResponderTerminate: (evt, gestureState) => {
 
             }
