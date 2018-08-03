@@ -13,6 +13,7 @@ import Modal from "react-native-modal";
 import SearchTextInput from "../../widget/SearchTextInput";
 
 const hotKey = ["5G", "物联网", "AI", "全面屏苹果", "三星", "华为", "小米", "达摩院", "ET大脑", "云小密", "无人驾驶", "无人机", "无人便利店"];
+const typeList = ["科技", "金融", "教育", "医疗", "环境"];
 const styles = require("./styles");
 
 class SearchPageV3 extends Component {
