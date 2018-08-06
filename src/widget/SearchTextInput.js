@@ -23,6 +23,7 @@ class SearchTextInput extends Component {
         defaultTipsColor: PropTypes.string,
         keyBoardType: PropTypes.string,
         inputValue: PropTypes.string,
+        inputType: PropTypes.string,
         inputIsSecure: PropTypes.bool,
         maxLineNum: PropTypes.number,
         borderStyle: PropTypes.object,
@@ -41,6 +42,7 @@ class SearchTextInput extends Component {
         defaultTipsColor: "#999",
         keyBoardType: "default",
         inputValue: "",
+        inputType: "分类",
         inputIsSecure: false,
         maxLineNum: 25,
         multiLine: false,
@@ -84,7 +86,7 @@ class SearchTextInput extends Component {
                             marginRight: 2.5,
                             color: this.props.defaultTipsColor
                         }}>
-                            分类
+                            {this.props.inputType}
                         </Text>
 
                         <Icon
@@ -119,6 +121,7 @@ class SearchTextInput extends Component {
                 clearTextOnFocus={this.state.isFocusInput}
                 autoFocus
                 underlineColorAndroid="transparent"
+                value={this.props.inputValue}
                 onChangeText={(text) => this.props.onChangeTxt(text)}
                 onEndEditing={(text) => this.props.onBlurLost(text)}
               />

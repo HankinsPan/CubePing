@@ -58,6 +58,25 @@ export const isEmpty = (obj) => {
 };
 
 /**
+ * 将Object转成Array
+ * @param obj
+ * @returns {Array}
+ */
+export const obj2Array = (obj) => {
+    const mArray = [];
+    for (let [key, value] of Object.entries(obj)) {
+        const oProps = {
+            key,
+            value
+        };
+
+        mArray.push(oProps);
+    }
+
+    return mArray;
+};
+
+/**
  * JSON 数组去重 by Key
  * @param array
  * @param key

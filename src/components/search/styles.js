@@ -1,5 +1,6 @@
 import * as color from "../../utils/colors";
 import { StyleSheet, Platform, Dimensions } from "react-native";
+import { deviceW } from "../../utils";
 
 const window = Dimensions.get("window");
 
@@ -119,6 +120,22 @@ module.exports = StyleSheet.create({
         paddingRight: 5
     },
 
+    typeOrgView: {
+        flex: 1,
+        flexDirection: "column",
+        width: window.width * 0.35
+    },
+
+    typeItemView: {
+        width: window.width * 0.3,
+        height: window.width * 0.1,
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#FFF",
+        borderBottomWidth: 0.5,
+        borderBottomColor: "rgba(0,0,0,0.05)"
+    },
+
     historyFooterBar: {
         flex: 1,
         padding: 12.5,
@@ -140,12 +157,29 @@ module.exports = StyleSheet.create({
         borderBottomColor: "rgba(0,0,0,0.05)"
     },
 
+    sListItemView: {
+        flex: 1,
+        flexDirection: "row",
+        padding: 10,
+        alignItems: "center",
+        borderBottomWidth: 0.5,
+        borderBottomColor: "rgba(0,0,0,0.05)"
+
+    },
+
     hisItemView: {
         flex: 1,
         flexDirection: "row",
         alignItems: "center"
     },
 
+    searchFootView: {
+        flex: 1,
+        padding: 10,
+        alignItems: "center",
+        justifyContent: "center",
+        marginBottom: 20
+    },
 
     searchImg: {
         width: window.width * 0.14,
@@ -153,9 +187,63 @@ module.exports = StyleSheet.create({
         borderRadius: window.width * 0.07
     },
 
+    cleanIconView: {
+        width: window.width * 0.15,
+        justifyContent: "center",
+        alignItems: "flex-end"
+        // backgroundColor: "rgba(0,0,0,0.05)"
+    },
+
+    resItemView: {
+        flex: 1,
+        padding: 10,
+        marginTop: 5,
+        backgroundColor: "#FFF"
+    },
+
+    resItemContentView: {
+        flex: 1,
+        flexDirection: "row",
+        alignItems: "center",
+        paddingTop: 2.5,
+        paddingBottom: 2.5
+    },
+
+    sResTabBarView: {
+        flex: 1,
+        paddingTop: 5,
+        paddingBottom: 5,
+        paddingLeft: 10,
+        paddingRight: 10,
+        backgroundColor: "#FFF",
+        justifyContent: "center"
+    },
+
+    sResComBarView: {
+        flex: 1
+
+    },
+
+    sResTabBarTxt: {
+        fontSize: window.width === 320 ? 12 : 14,
+        color: "#999"
+    },
+
+    sResItemTitleTxt: {
+        fontSize: window.width === 320 ? 14 : 16,
+        color: "#777"
+    },
+
     hIconStyle: {
         width: 20,
         height: 20,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+
+    sIconView: {
+        width: 18,
+        height: 18,
         alignItems: "center",
         justifyContent: "center"
     },
@@ -169,6 +257,16 @@ module.exports = StyleSheet.create({
         fontSize: 23,
         marginLeft: 5,
         color: color.HANKINS_BG
+    },
+
+    typeTxt: {
+        fontSize: window.width === 320 ? 12 : 14,
+        color: "#777"
+    },
+
+    sListTxt: {
+        fontSize: window.width === 320 ? 12 : 14,
+        color: "#777"
     },
 
     itemYearTxt: {
