@@ -15,7 +15,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 const deviceW = Dimensions.get("window").width;
 
-
 class SearchTextInput extends Component {
 
     static propsTypes = {
@@ -33,8 +32,9 @@ class SearchTextInput extends Component {
         isFocusInput: PropTypes.bool,
         onCleanInput: PropTypes.func,
         onChangeTxt: PropTypes.func,
-        onBlurLost: PropTypes.func,
-        onSearchType: PropTypes.func
+        // onBlurLost: PropTypes.func,
+        onSearchType: PropTypes.func,
+        disMissKeyBoard: PropTypes.func
     };
 
     static defaultProps = {
@@ -53,9 +53,12 @@ class SearchTextInput extends Component {
         },
         onChangeTxt: () => {
         },
-        onBlurLost: () => {
-        },
+        // onBlurLost: () => {
+        // },
         onSearchType: () => {
+        },
+        disMissKeyBoard: () => {
+            Keyboard.dismiss();
         }
     };
 
@@ -64,8 +67,15 @@ class SearchTextInput extends Component {
         height: deviceW * 0.1
     };
 
+    _onBlurLost = (text) => {
+        const sTips = text.nativeEvent.text;
+        // console.log("_onBlurLost sTips ->", sTips);
+        this.props.setKey(sTips);
+    };
+
 
     render() {
+        console.log("SearchTextInput props ->", this.props);
 
         return (
           <View style={styles.container}>
@@ -123,7 +133,7 @@ class SearchTextInput extends Component {
                 underlineColorAndroid="transparent"
                 value={this.props.inputValue}
                 onChangeText={(text) => this.props.onChangeTxt(text)}
-                onEndEditing={(text) => this.props.onBlurLost(text)}
+                onBlur={(text) => this._onBlurLost(text)}
               />
 
               {

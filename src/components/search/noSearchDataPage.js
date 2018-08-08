@@ -5,7 +5,8 @@ import {
     Image,
     StyleSheet,
     TouchableOpacity,
-    Dimensions
+    Dimensions,
+    Keyboard
 } from "react-native";
 
 const deviceW = Dimensions.get("window").width;
@@ -23,7 +24,9 @@ class NoSearchDataPage extends Component {
         console.log("NoSearchDataPage props ->", this.props);
 
         return (
-          <View style={styles.container}>
+          <TouchableOpacity style={styles.container}
+                            activeOpacity={0.95}
+                            onPress={() => {Keyboard.dismiss()}}>
               <Image
                 style={styles.tipImgView}
                 source={require("../../images/icons/null.png")}
@@ -36,7 +39,7 @@ class NoSearchDataPage extends Component {
                   </Text>
               </TouchableOpacity>
 
-          </View>
+          </TouchableOpacity>
         );
     }
 }

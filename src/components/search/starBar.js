@@ -60,7 +60,9 @@ class StarBar extends Component {
                   <View style={{
                       width: (deviceW * starValue / starTotal) > deviceW * 0.5
                         ? deviceW * 0.5
-                        : (deviceW * starValue / starTotal),
+                        : starValue === 0
+                          ? 0
+                          : (deviceW * starValue / starTotal),
                       height: 4,
                       backgroundColor: "#3BB273",
                       borderRadius: 1
@@ -68,9 +70,18 @@ class StarBar extends Component {
               </View>
 
               <View style={styles.starValueNum}>
-                  <Text style={styles.starNumTxt}>
-                      {`${((starValue / starTotal) * 100).toFixed(1)} %`}
-                  </Text>
+                  {
+                      starValue === 0
+                        ?
+                        <Text style={styles.starNumTxt}>
+                            {`0 %`}
+                        </Text>
+                        :
+                        <Text style={styles.starNumTxt}>
+                            {`${((starValue / starTotal) * 100).toFixed(1)} %`}
+                        </Text>
+                  }
+
               </View>
           </View>
         );

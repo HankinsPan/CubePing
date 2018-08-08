@@ -11,18 +11,15 @@ import {
     Keyboard
 } from "react-native";
 import * as ScreenUtil from "../../utils/ScreenUtil";
-import { deviceW, isEmpty } from "../../utils";
+import { deviceW, isEmpty, uniqueArrayNormal, Storage } from "../../utils";
 import Modal from "react-native-modal";
 import Icon from "react-native-vector-icons/Ionicons";
 
 import SearchTextInput from "../../widget/SearchTextInput";
 import NoSearchDataPage from "./noSearchDataPage";
 import MovieChart from "./movieChart";
-import * as color from "../../utils/colors";
-
 
 const hotKey = ["5G", "物联网", "AI", "全面屏苹果", "三星", "华为", "小米", "达摩院", "ET大脑", "云小密", "无人驾驶", "无人机", "无人便利店"];
-const sHistoryList = ["全面屏苹果", "三星", "华为", "小米", "达摩院", "ET大脑", "云小密", "无人驾驶"];
 const typeList = ["全部", "科技", "金融", "教育", "医疗", "环境"];
 const styles = require("./styles");
 
@@ -38,17 +35,71 @@ class SearchPageV3 extends Component {
             sLoading: false,
             sHisList: [],
             sResList: [],
+            sArrayTips: [],
             fadeValue: new Animated.Value(1)
         };
     }
 
     componentWillMount() {
-        if (!isEmpty(sHistoryList)) {
-            this.setState({
-                sHisList: [].concat(sHistoryList)
-            });
+        // if (!isEmpty(sHistoryList)) {
+        //     this.setState({
+        //         sHisList: [].concat(sHistoryList)
+        //     });
+        // }
+
+        Storage.get("sKeyHistoryList")
+          .then(data => {
+              this.setState({
+                  sHisList: [].concat(uniqueArrayNormal(data.sKeysList))
+              });
+          }).catch(err => {
+            console.log("err ->", err);
+        });
+    }
+
+    // componentDidMount() {
+    //     Storage.get("sKeyHistoryList")
+    //       .then(data => {
+    //           console.log("data ->", data);
+    //           console.log("get data -> ", uniqueArrayNormal(data.sKeysList));
+    //       }).catch(err => {
+    //         console.log("err ->", err);
+    //     });
+    // }
+
+    componentWillUnmount() {
+        const searchKeys = {
+            sKeysList: this.state.sArrayTips
+        };
+        if (!isEmpty(this.state.sArrayTips)) {
+            this._saveSearchList(searchKeys);
         }
     }
+
+
+    async _saveSearchList(keys) {
+        console.log("_saveSearchList keys ->", keys);
+        // console.log("uniqueArrayNormal ", uniqueArrayNormal(keys.sKeysList));
+
+        let oldSearchList = [];
+        await Storage.get("sKeyHistoryList")
+          .then(data => {
+              if (!isEmpty(data.sKeysList)) {
+                  oldSearchList = [].concat(data.sKeysList);
+              }
+          })
+          .catch(err => {
+              console.log("err ->", err);
+          });
+
+
+        let saveObj = {
+            sKeysList: [].concat(keys.sKeysList, oldSearchList)
+        };
+
+        await Storage.set("sKeyHistoryList", saveObj);
+    }
+
 
     async _onChangeTxt(text) {
         console.log("_onChangeTxt text ->", text);
@@ -85,8 +136,8 @@ class SearchPageV3 extends Component {
           .catch(error => {
               console.log("error ->", error);
           });
-
     };
+
 
     _clearTxt = () => {
         this.setState({
@@ -95,10 +146,22 @@ class SearchPageV3 extends Component {
     };
 
     _ScrollShotView = (event) => {
-        const _dynNum = parseFloat((event.nativeEvent.contentOffset.y).toFixed(2));
+        const _dynNum = parseInt((event.nativeEvent.contentOffset.y));
 
-        if (_dynNum !== 0) {
-            Keyboard.dismiss();
+        if (Math.abs(_dynNum) !== 0
+          && (Math.abs(_dynNum) % 3 === 0)) {
+            SearchTextInput.defaultProps.disMissKeyBoard();
+            this._cancelModal();
+        }
+    };
+
+    _sListScroll = (event) => {
+        const _sDistance = parseInt((event.nativeEvent.contentOffset.y));
+        if (Math.abs(_sDistance) !== 0
+          && (Math.abs(_sDistance) % 5 === 0)) {
+            console.log("_sDistance ->", Math.abs(_sDistance));
+
+            SearchTextInput.defaultProps.disMissKeyBoard();
             this._cancelModal();
         }
     };
@@ -191,11 +254,13 @@ class SearchPageV3 extends Component {
 
     _sItemClick = (item) => {
         console.log("_sItemClick item ->", item);
+        this._setKeyToArray(item);
         this._onChangeTxt(item);
     };
 
     _hotKeyClick = (key) => {
         console.log("_hotKeyClick key ->", key);
+        this._setKeyToArray(key);
         this._onChangeTxt(key);
     };
 
@@ -211,6 +276,12 @@ class SearchPageV3 extends Component {
         this.setState({
             sHisList: [].concat(tempArray)
         });
+
+        const modifyObj = {
+            sKeysList: [].concat(tempArray)
+        };
+
+        Storage.set("sKeyHistoryList", modifyObj);
     };
 
     _cleanSearch = () => {
@@ -226,10 +297,13 @@ class SearchPageV3 extends Component {
                 sHisList: []
             });
         }, 350);
+
+        Storage.remove("sKeyHistoryList");
     };
 
     _reLoadSearch = () => {
         console.log("_reLoadSearch");
+        this._onChangeTxt(this.state.getValue);
     };
 
     _sResHeader = (resHeadTxt) => {
@@ -331,9 +405,20 @@ class SearchPageV3 extends Component {
         console.log("_resItemClick item ->", item);
     };
 
+    _setKeyToArray = (sKey) => {
+        console.log("_setKeyToArray sKey ->", sKey);
+        if (!isEmpty(sKey)) {
+            this.state.sArrayTips.unshift(sKey);
+        }
+    };
+
     render() {
         // console.log("SearchPageV3 props ->", this.props);
         console.log("SearchPageV3 state ->", this.state);
+
+        const props = {
+            setKey: this._setKeyToArray
+        };
 
         return (
           <View style={styles.container}>
@@ -361,12 +446,14 @@ class SearchPageV3 extends Component {
               }}>
                   <SearchTextInput
                     onChangeTxt={(text) => this._onChangeTxt(text)}
+                    // onBlurLost={() => this._onBlurLost(text)}
                     onCleanInput={() => this._clearTxt()}
                     onSearchType={() => this._searchTypeClick()}
                     isCleanTxt={true}
                     isSearchIcon={true}
                     inputValue={this.state.getValue}
                     inputType={this.state.searchType}
+                    {...props}
                   />
               </View>
 
@@ -410,12 +497,13 @@ class SearchPageV3 extends Component {
                                   </Text>
 
                                   <FlatList
-                                    ListFooterComponent={this._footer()}
+                                    ListFooterComponent={() => this._footer()}
                                     refreshing={false}
                                     onEndReachedThreshold={0.1}
                                     data={this.state.sHisList}
                                     // data={this.state.searchList}
                                     renderItem={({ item }) => this._sListRenderItem(item)}
+                                    onScroll={(event) => this._sListScroll(event)}
                                   />
 
                               </Animated.View>
@@ -439,8 +527,8 @@ class SearchPageV3 extends Component {
                           refreshing={false}
                           onEndReachedThreshold={0.1}
                           data={this.state.sResList}
-                          // data={this.state.searchList}
                           renderItem={({ item }) => this._ResListItem(item)}
+                          onScroll={(event) => this._sListScroll(event)}
                         />
                         :
                         <NoSearchDataPage onPress={() => this._reLoadSearch()}/>

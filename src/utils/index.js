@@ -90,6 +90,34 @@ export const objValueAcc = (obj) => {
 };
 
 /**
+ * 简单数组去重
+ * @param array
+ */
+export const uniqueArrayNormal = (array) => {
+    console.log("uniqueArrayNormal array ->", array);
+
+    if (!truthy(array)) {
+        return array;
+    }
+    let mArray = [];
+
+    for (let i = 0; i < array.length; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[i] === array[j]) {
+                i++;
+                j = i;
+            }
+        }
+        mArray.push(array[i]);
+    }
+
+    console.log("mArray ->", mArray);
+
+    return mArray;
+};
+
+
+/**
  * JSON 数组去重 by Key
  * @param array
  * @param key
