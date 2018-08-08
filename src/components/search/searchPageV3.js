@@ -243,6 +243,10 @@ class SearchPageV3 extends Component {
     };
 
     _ResListItem = (item) => {
+        const props = {
+            starObj: item.rating.details
+        };
+
         return (
           <TouchableOpacity style={styles.resItemView}
                             onPress={() => this._resItemClick(item)}>
@@ -317,7 +321,7 @@ class SearchPageV3 extends Component {
                   </Text>
               </View>
 
-              <MovieChart/>
+              <MovieChart {...props}/>
 
           </TouchableOpacity>
         );

@@ -76,6 +76,19 @@ export const obj2Array = (obj) => {
     return mArray;
 };
 
+export const objValueAcc = (obj) => {
+    let total = 0;
+
+    for (let [key, value] of Object.entries(obj)) {
+        // console.log("key -=-->", key);
+        // console.log("value ->", value);
+
+        total += parseInt(value);
+    }
+
+    return total;
+};
+
 /**
  * JSON 数组去重 by Key
  * @param array
