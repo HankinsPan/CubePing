@@ -79,8 +79,8 @@ class StartPage extends Component {
         this.props.navigation.navigate("SearchUp");
     };
 
-    _searchNewPage = () =>{
-        this.props.navigation.navigate('SearchNew')
+    _searchNewPage = () => {
+        this.props.navigation.navigate("SearchNew");
     };
 
     _startAreaPage = () => {
@@ -91,9 +91,16 @@ class StartPage extends Component {
         this.props.navigation.navigate("ToastPage");
     };
 
+    _videoRecodePage = () => {
+        this.props.navigation.navigate("VideoRecord");
+    };
+
+    _glassPage = () => {
+        this.props.navigation.navigate("GlassView");
+    };
+
     render() {
         console.log("SignPage props ->", this.props);
-
 
         return (
           <TouchableWithoutFeedback onLongPress={() => this._getView2Img()}>
@@ -101,31 +108,6 @@ class StartPage extends Component {
                   <ViewShot
                     ref="viewShot"
                     options={{ format: "jpg", quality: 0.9 }}>
-
-                      <TouchableOpacity style={styles.startView}
-                                        onPress={() => this._startNextPage()}>
-                          <Text style={styles.startTxt}>
-                              Start at here
-                          </Text>
-                      </TouchableOpacity>
-
-
-                      <View style={{ marginTop: 30 }}/>
-
-                      <TouchableOpacity style={styles.startView}
-                                        onPress={() => this._startSlidePage()}>
-                          <Text style={styles.startTxt}>
-                              Slide Page
-                          </Text>
-                      </TouchableOpacity>
-
-                      <View style={{ marginTop: 30 }}/>
-                      <TouchableOpacity style={styles.startView}
-                                        onPress={() => this._startStatusPage()}>
-                          <Text style={styles.startTxt}>
-                              SearchPage Page
-                          </Text>
-                      </TouchableOpacity>
 
                       <View style={{ marginTop: 30 }}/>
                       <TouchableOpacity style={styles.startView}
@@ -145,19 +127,20 @@ class StartPage extends Component {
 
                       <View style={{ marginTop: 30 }}/>
                       <TouchableOpacity style={styles.startView}
-                                        onPress={() => this._startAreaPage()}>
+                                        onPress={() => this._videoRecodePage()}>
                           <Text style={styles.startTxt}>
-                              Area Page
+                              videoRecode Page
                           </Text>
                       </TouchableOpacity>
 
                       <View style={{ marginTop: 30 }}/>
                       <TouchableOpacity style={styles.startView}
-                                        onPress={() => this._startToastPage()}>
+                                        onPress={() => this._glassPage()}>
                           <Text style={styles.startTxt}>
-                              Toast Page
+                              glass Page
                           </Text>
                       </TouchableOpacity>
+
                   </ViewShot>
               </View>
           </TouchableWithoutFeedback>

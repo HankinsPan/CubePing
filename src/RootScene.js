@@ -59,6 +59,9 @@ import ImgScanPageV2 from "./components/imgScanPageV2/ImgScanPageV2";
 import NukaCarousel from "./components/nukaCarousel/nukaCarousel";
 import SmallPage from "./components/smallPage/smallPage";
 
+import VideoRecord from "./components/videoDom/videoRecord";
+import GlassView from "./components/glassView/glassPage";
+
 const AppNavigator = StackNavigator(
   {
       Main: { screen: StartScene },
@@ -97,7 +100,10 @@ const AppNavigator = StackNavigator(
       TextInputBar: { screen: TextInputBar },
       ImgScanPageV2: { screen: ImgScanPageV2 },
       NukaCarousel: { screen: NukaCarousel },
-      SmallPage: { screen: SmallPage }
+      SmallPage: { screen: SmallPage },
+
+      VideoRecord: { screen: VideoRecord },
+      GlassView: { screen: GlassView }
   },
   {
       headerMode: "none",

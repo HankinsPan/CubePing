@@ -17,6 +17,8 @@
     "pinyinlite": "^1.2.1",
     "react": "16.2.0",
     "react-native": "0.53.0",
+    "react-native-beautiful-video-recorder": "^1.2.0",
+    "react-native-blur": "^3.2.2",
     "react-native-canvas": "^0.1.20",
     "react-native-card-carousel": "^1.1.0",
     "react-native-card-media": "^0.1.0",
